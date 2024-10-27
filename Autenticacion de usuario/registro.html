@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Prevención de ataques cardíacos</title>
-        <link rel="stylesheet" href="styleRegistro.css">
-    </head>
-    <body>
-        <div class="cuadrado">
-            <h1>Registro</h1>
-            <div class="input-container">
-                <div class="cuadro-input">
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" placeholder="Ingrese su usuario">
-                </div>
-                <div class="cuadro-input">
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" id="contrasena" placeholder="Ingrese su contraseña">
-                </div>
-                <div class="cuadro-input">
-                    <label for="edad">Edad:</label>
-                    <input type="text" id="edad" placeholder="Ingrese su edad">
-                </div>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Prevención de ataques cardíacos</title>
+    <link rel="stylesheet" href="styleRegistro.css">
+</head>
+<body>
+    <div class="cuadrado">
+        <h1>Registro</h1>
+        <div class="input-container">
+            <div class="cuadro-input">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" placeholder="Ingrese su Email">
             </div>
-            <button class="boton">Ingresar</button>
-            <p><a class = "botonR", href="inicioSesion.html">Ya tienes una cuenta?</a></p>
-        </div> 
-    </body>
+            <div class="cuadro-input">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" placeholder="Ingrese su contraseña">
+            </div>
+            <div class="cuadro-input">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" placeholder="Ingrese su nombre de usuario">
+            </div>
+        </div>
+        <button class="boton" id="ingreso">Ingresar</button>
+        <p><a class="botonR" href="inicioSesion.html">¿Ya tienes una cuenta?</a></p>
+    </div> 
+
+    <script type="module">
+        // Importar las funciones necesarias del SDK de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyC3GQQ3wAjBCOXktQcPUE84il8NjzXbEn4",
+            authDomain: "preventionheartattack.firebaseapp.com",
+            projectId: "preventionheartattack",
+            storageBucket: "preventionheartattack.appspot.com",
+            messagingSenderId: "644261726096",
+            appId: "1:644261726096:web:abd9f91bdeedde00d65515",
+            measurementId: "G-0GYKVLR38Z"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Agregar evento para el registro de usuarios
+        document.getElementById("ingreso").addEventListener("click", function(e) {
+            e.preventDefault();
+            set(ref(db, 'user/' + document.getElementById("usuario").value), {
+                username: document.getElementById("usuario").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("contrasena").value,
+            }).then(() => {
+                alert("Bienvenido");
+            }).catch((error) => {
+                console.error("Error al registrar usuario:", error);
+            });
+        });
+    </script>
+</body>
 </html>

@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to bottom, #89d4cf, #e6b3cc);
+    background: linear-gradient(to bottom, #e65353, #ffffff);
     
     color: #333;
     font-family: Arial, sans-serif;
@@ -12,8 +12,8 @@ body {
 }
 
 .cuadrado {
-    width: 800px; 
-    height: 570px; 
+    width: 750px; 
+    height: 480px; 
     background-color: #ffffff; 
     border-radius: 20px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
@@ -26,7 +26,7 @@ body {
 
 h1 {
     font-size: 2.5em;
-    color: #89d4cf; 
+    color: #ec2525; 
     margin: 0;
     padding: 0 20px;
 }
@@ -49,13 +49,13 @@ h1 {
 label {
     display: block; 
     margin-bottom: 5px; 
-    color: #4cc0b8;
+    color: #ec2525;
 }
 
 input {
     width: 100%; 
     padding: 10px; 
-    border: 1px solid #4cc0b8;
+    border: 1px solid #ec2525;
     border-radius: 18px; 
     font-size: 1em; 
 }
@@ -75,9 +75,10 @@ input::placeholder {
     padding: 10px 60px;
     font-size: 1.2em;
     color: #fff;
-    background-color: #e6b3cc; 
+    margin-bottom: 15px;
+    background-color: #ec2525; 
     border: none;
-    border-radius: 50px;
+    border-radius: 40px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: auto; 
@@ -85,12 +86,12 @@ input::placeholder {
 }
 
 .boton:hover {
-    background-color: #89d4cf; 
+    background-color: #ec2525; 
 }
 
 .botonR {
-    margin-top: 30px;
+    margin-top: 0px;
     padding: 5px 30px;
     font-size: 1.2em;
-    color: #e6b3cc;
+    color: #ec2525;
 }

@@ -1,25 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <title>Prevención de ataques cardíacos</title>
-        <link rel="stylesheet" href="styleInicio.css">
-    </head>
-    <body>
-        <div class="cuadrado">
-            <h1>Inicio de Sesión</h1>
-            <div class="input-container">
-                <div class="cuadro-input">
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" placeholder="Ingrese su usuario">
-                </div>
-                <div class="cuadro-input">
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" id="contrasena" placeholder="Ingrese su contraseña">
-                </div>
+<head>
+    <meta charset="utf-8" />
+    <title>Prevención de ataques cardíacos - Inicio de Sesión</title>
+    <link rel="stylesheet" href="styleInicio.css">
+</head>
+<body>
+    <div class="cuadrado">
+        <h1>Inicio de Sesión</h1>
+        <div class="input-container">
+            <div class="cuadro-input">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" placeholder="Ingrese su Email">
             </div>
-            <button class="boton">Ingresar</button>
-            <p><a class = "botonR", href="registro.html">Registrarse</a></p>
-        </div> 
-    </body>
+            <div class="cuadro-input">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" placeholder="Ingrese su contraseña">
+            </div>
+        </div>
+        <button id="loginButton" class="boton">Ingresar</button>
+        <p><a class="botonR" href="registro.html">Registrarse</a></p>
+    </div> 
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC3GQQ3wAjBCOXktQcPUE84il8NjzXbEn4",
+            authDomain: "preventionheartattack.firebaseapp.com",
+            projectId: "preventionheartattack",
+            storageBucket: "preventionheartattack.appspot.com",
+            messagingSenderId: "644261726096",
+            appId: "1:644261726096:web:abd9f91bdeedde00d65515",
+            measurementId: "G-0GYKVLR38Z"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        async function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('contrasena').value;
+
+            if (!email || !password) {
+                alert("Por favor ingrese su correo y contraseña.");
+                return;
+            }
+
+            const dbRef = ref(db);
+
+            try {
+                const snapshot = await get(child(dbRef, `user`));
+                if (snapshot.exists()) {
+                    const users = snapshot.val();
+                    let userFound = false;
+
+                    for (let userId in users) {
+                        const userData = users[userId];
+                        if (userData.email === email) {
+                            userFound = true;
+                            if (userData.password === password) {
+                                alert("Inicio de sesión exitoso");
+                                // Aquí puedes redirigir a otra página
+                                // window.location.href = "home.html";
+                            } else {
+                                alert("Contraseña incorrecta. Inténtalo de nuevo.");
+                            }
+                            break;
+                        }
+                    }
+                    if (!userFound) {
+                        alert("Usuario no encontrado. Por favor, regístrate.");
+                    }
+                } else {
+                    alert("No hay usuarios registrados.");
+                }
+            } catch (error) {
+                console.error("Error al leer los datos:", error);
+                alert("Error al iniciar sesión. Inténtalo más tarde.");
+            }
+        }
+        document.getElementById('loginButton').addEventListener('click', login);
+    </script>
+</body>
 </html>
