@@ -14,11 +14,11 @@
                 <input type="number" id="edad" name="edad" placeholder="Ingrese su edad" required>
             </div>
             <div class="pregunta">
-                <label for="frecuencia">¿Durante cuantos días en los últimos 30 días su salud física no fue buena?</label>
+                <label for="dias_physic">¿Durante cuantos días en los últimos 30 días su salud física no fue buena?</label>
                 <input type="number" id="dias_physic" name="dias" placeholder="Ingresa los días" required>
             </div>
             <div class="pregunta">
-                <label for="dieta">¿Durante cuantos días en los últimos 30 días su salud mental no fue buena?</label>
+                <label for="dias_mental">¿Durante cuantos días en los últimos 30 días su salud mental no fue buena?</label>
                 <input type="number" id="dias_mental" name="dias" placeholder="Ingresa los días" required>
             </div>
             <div class="pregunta">
@@ -31,20 +31,20 @@
                 </select>
             </div>
             <div class="pregunta">
-                <label for="presion">¿Participó en alguna actividad física o ejercicio durante el último mes?</label>
-                <select id="presion" name="presion" required>
+                <label for="actividad_fisica">¿Participó en alguna actividad física o ejercicio durante el último mes?</label>
+                <select id="actividad_fisica" name="actividad_fisica" required>
                     <option value="">Seleccione una opción</option>
                     <option value="si">Sí</option>
                     <option value="no">No</option>
                 </select>
             </div>
             <div class="pregunta">
-                <label for="colesterol">En promedio. ¿Cuántas horas duerme en un periodo de 24 horas?</label>
+                <label for="horas_sueño">En promedio. ¿Cuántas horas duerme en un periodo de 24 horas?</label>
                 <input type="number" id="horas_sueño" name="horas" placeholder="Ingresa las horas" required>
             </div>
             <div class="pregunta">
-                <label for="dientes">¿Cuántos dientes permanentes le han sido removidos debido a caries o enfermedad de las encías?</label>
-                <input type="number" id="dientes_removidos" name="dientes" placeholder="Ingresa el numero de dientes" required>
+                <label for="dientes_removidos">¿Cuántos dientes permanentes le han sido removidos debido a caries o enfermedad de las encías?</label>
+                <input type="number" id="dientes_removidos" name="dientes_removidos" placeholder="Ingresa el numero de dientes" required>
             </div>
             <div class="pregunta">
                 <label for="ataque_cardiaco">¿Alguna vez le dijeron que tuvo un ataque cardiaco (Ataque de miocardio)?</label>
@@ -173,6 +173,14 @@
                 </select>
             </div>
             <div class="pregunta">
+                <label for="dificilta_caminar">¿Tienes dificultades serias para caminar o subir escaleras?</label>
+                <select id="dificilta_caminar" name="dificilta_caminar" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
                 <label for="gripe_vacuna">¿Ha recibido la vacuna contra la gripe en los últimos 12 meses?</label>
                 <select id="gripe_vacuna" name="gripe_vacuna" required>
                     <option value="">Seleccione una opción</option>
@@ -204,8 +212,50 @@
                     <option value="no">No</option>
                 </select>
             </div>
-            <button type="submit" class="boton">Enviar Encuesta</button>
+            <button type="submit" class="boton" id="predecir">Enviar Encuesta</button>
         </form>
     </div>
+    <script>
+        document.getElementById('encuestaForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            // Obtener valores de la encuesta
+            const edad = document.getElementById('edad').value;
+            const historia = document.getElementById('historia').value;
+            const fumador = document.getElementById('fumador').value;
+            const covid = document.getElementById('covid19').value;
+            const tetanosV = document.getElementById('tetanos_vacuna').value;
+            const neumoniaV = document.getElementById('neumonia_vacuna').value;
+            const gripeV = document.getElementById('gripe_vacuna').value;
+            const dificultadCaminar = document.getElementById('dificilta_caminar').value;
+            const alcoholD = document.getElementById('alcohol_dias').value;
+            const imc = document.getElementById('imc').value;
+            const peso = document.getElementById('peso').value;
+            const altura = document.getElementById('altura').value;
+            const tcTac = document.getElementById('tc_tac').value;
+            const dificultadConcentracion = document.getElementById('dificultad_concentracion').value;
+            const diabetes = document.getElementById('diabetes').value;
+            const artritis = document.getElementById('artritis').value;
+            const enfermedadRenal = document.getElementById('enfermedad_renal').value;
+            const depresivo = document.getElementById('depresivo').value;
+            const epoc = document.getElementById('epoc').value;
+            const cancerPiel = document.getElementById('cancer_piel').value;
+            const asma = document.getElementById('asma').value;
+            const derrameCerebral = document.getElementById('derrame_cerebral').value;
+            const angina = document.getElementById('angina').value;
+            const ataqueCardiaco = document.getElementById('ataque_cardiaco').value;
+            const dientesRemovidos = document.getElementById('dientes_removidos').value;
+            const diasPhysic = document.getElementById('dias_physic').value;
+            const diasMental = document.getElementById('dias_mental').value;
+            const actividadFisica = document.getElementById('actividad_fisica').value;
+            const horasSueño = document.getElementById('horas_sueño').value;
+
+            // Procesar los datos (puedes enviarlos a Firebase o hacer algo más)
+            console.log({ edad, historia, fumador, covid, tetanosV, neumoniaV, gripeV, dificultadCaminar, dificultadConcentracion, alcoholD, imc, peso, altura, tcTac, 
+                diabetes, artritis, enfermedadRenal, depresivo, epoc, cancerPiel, asma, derrameCerebral, angina, ataqueCardiaco, dientesRemovidos, diasMental, diasPhysic, actividadFisica, horasSueño});
+
+            alert("Gracias por participar en la encuesta!");
+        });
+    </script>
 </body>
 </html>

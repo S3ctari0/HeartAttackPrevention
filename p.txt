@@ -1,0 +1,35 @@
+<script type="module">
+        // Importar las funciones necesarias del SDK de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyC3GQQ3wAjBCOXktQcPUE84il8NjzXbEn4",
+            authDomain: "preventionheartattack.firebaseapp.com",
+            projectId: "preventionheartattack",
+            storageBucket: "preventionheartattack.appspot.com",
+            messagingSenderId: "644261726096",
+            appId: "1:644261726096:web:abd9f91bdeedde00d65515",
+            measurementId: "G-0GYKVLR38Z"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Agregar evento para el registro de usuarios
+        document.getElementById("predecir").addEventListener("click", function(e) {
+            e.preventDefault();
+            set(ref(db, 'encuesta/' + document.getElementById("usuario").value), {
+                username: document.getElementById("usuario").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("contrasena").value,
+            }).then(() => {
+                alert("Bienvenido");
+                window.location.href = "../index.html";
+            }).catch((error) => {
+                console.error("Error al registrar usuario:", error);
+            });
+        });
+    </script>
