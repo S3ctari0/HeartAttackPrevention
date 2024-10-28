@@ -1,6 +1,5 @@
 body {
     background: linear-gradient(to bottom, #e65353, #ffffff);
-    
     color: #333;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -9,4 +8,51 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.cuadrado {
+    width: 90%; 
+    height: 80vh; 
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px; 
+    justify-content: space-between; 
+}
+
+h1 {
+    text-align: center;
+    color: #ec2525; 
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 0 20px;
+    color: #ec2525; 
+    text-align: start;
+}
+
+.pregunta {
+    display: flex;
+    margin-bottom: 2px;
+    flex-direction: column;
+}
+
+.boton {
+    grid-column: span 3; 
+    margin-top: 20px;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #ec2525; 
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto; 
+    max-width: 200px;
 }

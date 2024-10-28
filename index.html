@@ -5,4 +5,207 @@
     <title>Prevención de ataques cardíacos</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
+    <div class="cuadrado">
+        <h1>Encuesta sobre Salud Cardíaca</h1>
+        <form id="encuestaForm" class="container">
+            <div class="pregunta">
+                <label for="edad">¿Cuál es tu edad?</label>
+                <input type="number" id="edad" name="edad" placeholder="Ingrese su edad" required>
+            </div>
+            <div class="pregunta">
+                <label for="frecuencia">¿Durante cuantos días en los últimos 30 días su salud física no fue buena?</label>
+                <input type="number" id="dias_physic" name="dias" placeholder="Ingresa los días" required>
+            </div>
+            <div class="pregunta">
+                <label for="dieta">¿Durante cuantos días en los últimos 30 días su salud mental no fue buena?</label>
+                <input type="number" id="dias_mental" name="dias" placeholder="Ingresa los días" required>
+            </div>
+            <div class="pregunta">
+                <label for="historia">Dría usted que, en general, su salud es:</label>
+                <select id="historia" name="historia" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="buena">Buena</option>
+                    <option value="regular">Regular</option>
+                    <option value="mala">Mala</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="presion">¿Participó en alguna actividad física o ejercicio durante el último mes?</label>
+                <select id="presion" name="presion" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="colesterol">En promedio. ¿Cuántas horas duerme en un periodo de 24 horas?</label>
+                <input type="number" id="horas_sueño" name="horas" placeholder="Ingresa las horas" required>
+            </div>
+            <div class="pregunta">
+                <label for="dientes">¿Cuántos dientes permanentes le han sido removidos debido a caries o enfermedad de las encías?</label>
+                <input type="number" id="dientes_removidos" name="dientes" placeholder="Ingresa el numero de dientes" required>
+            </div>
+            <div class="pregunta">
+                <label for="ataque_cardiaco">¿Alguna vez le dijeron que tuvo un ataque cardiaco (Ataque de miocardio)?</label>
+                <select id="ataque_cardiaco" name="ataque_cardiaco" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="angina">¿Alguna vez le dijeron que tuvo angina o una enfermedad coronaria?</label>
+                <select id="angina" name="angina" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="derrame_cerebral">¿Alguna vez le dijeron que tuvo derrame cerebral?</label>
+                <select id="derrame_cerebral" name="derrame_cerebral" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="asma">¿Tiene o alguna vez tuvo asma?</label>
+                <select id="asma" name="asma" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="cancer_piel">¿Alguna vez le dijeron que tuvo cáncer de piel que no es melanoma?</label>
+                <select id="cancer_piel" name="cancer_piel" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="epoc">¿Alguna vez le dijeron que tenía EPOC, enfisema o bronquitis crónica?</label>
+                <select id="epoc" name="epoc" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="depresivo">¿Alguna vez le dijeron que tenía un transtorno depresivo?</label>
+                <select id="depresivo" name="depresivo" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="enfermedad_renal">¿Alguna vez le dijeron que tenía una enfermedad renal, excluyendo piedras o infecciones de vegija?</label>
+                <select id="enfermedad_renal" name="enfermedad_renal" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="artritis">¿Alguna vez le dijeron que tenía alguna forma de artritis?</label>
+                <select id="artritis" name="artritis" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="diabetes">¿Alguna vez le dijeron que tenía diabetes?</label>
+                <select id="diabetes" name="diabetes" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="dificultad_concentracion">¿Tiene dificultades serias para concentrarse, recordar o tomar decisiones debido a una condicion fisica, mental o emocional?</label>
+                <select id="dificultad_concentracion" name="dificultad_concentracion" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="fumador">¿Cuál es su estado de fumador? </label>
+                <select id="fumador" name="fumador" required>
+                    <option value="">Fumador...</option>
+                    <option value="diario">Diario</option>
+                    <option value="ocasional">Ocasional</option>
+                    <option value="exfumador">Exfumador</option>
+                    <option value="no fumador">No fumador</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="tc_tac">¿Alguna vez se ha realizado una tomografia computarizada (TC) o tomografia axial (TAC) en el area del pecho?</label>
+                <select id="tc_tac" name="tc_tac" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="altura">Altura en metros</label>
+                <input type="number" id="altura" name="altura" placeholder="Ingrese su altura (m)" required>
+            </div>
+            <div class="pregunta">
+                <label for="peso">Peso en kilogramos</label>
+                <input type="number" id="peso" name="peso" placeholder="Ingrese su peso (k)" required>
+            </div>
+            <div class="pregunta">
+                <label for="imc">índice de Masa Corporal</label>
+                <input type="number" id="imc" name="imc" placeholder="Ingrese su IMC" required>
+            </div>
+            <div class="pregunta">
+                <label for="alcohol_dias">¿Ha consumido al menos una bebida alcohólica en los ultimos 30 días?</label>
+                <select id="alcohol_dias" name="alcohol_dias" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="gripe_vacuna">¿Ha recibido la vacuna contra la gripe en los últimos 12 meses?</label>
+                <select id="gripe_vacuna" name="gripe_vacuna" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="neumonia_vacuna">¿Alguna vez ha recibido una vacuna contra la neumonía?</label>
+                <select id="neumonia_vacuna" name="neumonia_vacuna" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="tetanos_vacuna">¿Ha recibido una vacuna contra los tétanos en los últimos 10 años?¿La vacuna inclua pertussis o tos ferina?</label>
+                <select id="tetanos_vacuna" name="tetanos_vacuna" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="pregunta">
+                <label for="covid19">¿Alguna vez le dijeron que dio positivo para COVID-19?</label>
+                <select id="covid19" name="covid19" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <button type="submit" class="boton">Enviar Encuesta</button>
+        </form>
+    </div>
+</body>
 </html>
