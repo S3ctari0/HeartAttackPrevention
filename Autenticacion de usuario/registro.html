@@ -27,11 +27,9 @@
     </div> 
 
     <script type="module">
-        // Importar las funciones necesarias del SDK de Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
-
-        // Configuración de Firebase
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+    
         const firebaseConfig = {
             apiKey: "AIzaSyC3GQQ3wAjBCOXktQcPUE84il8NjzXbEn4",
             authDomain: "preventionheartattack.firebaseapp.com",
@@ -41,18 +39,21 @@
             appId: "1:644261726096:web:abd9f91bdeedde00d65515",
             measurementId: "G-0GYKVLR38Z"
         };
-
-        // Inicializar Firebase
+    
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
-
-        // Agregar evento para el registro de usuarios
+    
         document.getElementById("ingreso").addEventListener("click", function(e) {
             e.preventDefault();
-            set(ref(db, 'user/' + document.getElementById("usuario").value), {
-                username: document.getElementById("usuario").value,
-                email: document.getElementById("email").value,
-                password: document.getElementById("contrasena").value,
+    
+            const usuario = document.getElementById("usuario").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("contrasena").value;
+    
+            push(ref(db, 'user'), {
+                username: usuario,
+                email: email,
+                password: password,
             }).then(() => {
                 alert("Bienvenido");
                 window.location.href = "../index.html";
@@ -61,5 +62,6 @@
             });
         });
     </script>
+
 </body>
 </html>
