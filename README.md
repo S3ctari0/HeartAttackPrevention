@@ -30,3 +30,13 @@ Desarrollar una aplicación que implemente un modelo predictivo que permita iden
 **5.** Desarrollar una página web que utilice el modelo predictivo para estimar el riesgo de infarto a partir de datos recopilados (sin reemplazar el diagnóstico médico).
 
 
+**Conclusiones:**
+
+**•** El modelo de árboles de decisión logró una precisión del 85,5%, demostrando su efectividad para clasificar correctamente la mayoría de los casos. Este desempeño se debe a la selección adecuada del modelo, todos el tratamiento de datos y los ajustes de hiperparámetros, graciasa técnicas como Gridsearch.
+
+
+**•** La limpieza, tratamiento y transformación de datos, es primordial para un buen resultado en el entrenamiento del modelo.
+
+
+**•** Al finalizar todo el ejercicio podemos reafirmar que los datos son indispensables y que analizarlos puede llevarnos a reconocer patrones que no notamos a simple vista, a facilitar la toma de decisiones y por supuesto, a contribuir en la solución de problemáticas que nos aquejan en la actualidad, en busca del bienestar común.
+
